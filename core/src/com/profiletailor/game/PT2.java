@@ -8,7 +8,9 @@ public class PT2 extends Game {
 	
 	@Override
 	public void create () {
-		this.setScreen(new MainScreen());
+		//new screen is created. PT2 must be sent to the screen.
+		this.setScreen(new MainScreen(this));
+		Assets.set();
 	}
 
 	@Override
