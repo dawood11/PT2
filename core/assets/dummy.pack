@@ -1,0 +1,117 @@
+
+dummy.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+calculator
+  rotate: false
+  xy: 0, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+database tool
+  rotate: false
+  xy: 64, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+edit well tops
+  rotate: false
+  xy: 128, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+folder
+  rotate: false
+  xy: 192, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+insert two
+  rotate: false
+  xy: 256, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+insert
+  rotate: false
+  xy: 320, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+managers
+  rotate: false
+  xy: 384, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+new well tops folder
+  rotate: false
+  xy: 448, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+object
+  rotate: false
+  xy: 512, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+searchbar
+  rotate: false
+  xy: 576, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+sesmic interpetation
+  rotate: false
+  xy: 640, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+studio
+  rotate: false
+  xy: 704, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+synchronize
+  rotate: false
+  xy: 768, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+tool palette
+  rotate: false
+  xy: 832, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+visual filters
+  rotate: false
+  xy: 896, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+window
+  rotate: false
+  xy: 960, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1

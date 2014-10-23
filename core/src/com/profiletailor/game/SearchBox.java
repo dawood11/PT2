@@ -10,12 +10,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField;
  * Contains searchfield and table with search results.
  * Dimensions and position is defined from static values in Assets, while children are relative to parent.
  */
-public class SearchTable extends Table {
+public class SearchBox extends Table {
 	Label lblTop; //header, if needed
 	Table tblResults; //displays search results
 	TextField txfSearch; // input string for search
 	
-	SearchTable(){
+	SearchBox(){
 		super();
 		setClip(true); //clips children exceeding parents boundaries
 		
@@ -25,11 +25,11 @@ public class SearchTable extends Table {
 		txfSearch = new TextField("Search for items" , Assets.txfStyle1);
 
 		//Always stays at the top, but will not exceed parents boundaries
-		lblTop.setSize(getWidth(), Assets.lblHeight);
+		lblTop.setSize(getWidth(), Assets.lblH);
 		lblTop.setPosition(0, getHeight() - lblTop.getHeight());
 		
 		//Always stays under lblTop
-		txfSearch.setSize(getWidth(), Assets.txfHeight);
+		txfSearch.setSize(getWidth(), Assets.txfH);
 		txfSearch.setPosition(0, getHeight() - (txfSearch.getHeight() + lblTop.getHeight()));
 		txfSearch.addListener(new EventListener() {
 			@Override
@@ -46,6 +46,11 @@ public class SearchTable extends Table {
 		//Always stays right beneath lblTop and txfSearch
 		tblResults.setSize(getWidth(), getHeight() - (txfSearch.getHeight() + lblTop.getHeight()));
 		tblResults.setPosition(0, 0);
+		
+		//Add actors to table
+		addActor(lblTop);
+		addActor(txfSearch);
+		addActor(tblResults);
 		
 	}
 	

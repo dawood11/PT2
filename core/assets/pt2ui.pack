@@ -1,0 +1,21 @@
+
+pt2ui.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+down
+  rotate: false
+  xy: 0, 0
+  size: 64, 64
+  split: 1, 1, 1, 1
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+up
+  rotate: false
+  xy: 64, 0
+  size: 64, 64
+  split: 1, 1, 1, 1
+  orig: 64, 64
+  offset: 0, 0
+  index: -1

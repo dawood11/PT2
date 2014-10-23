@@ -11,22 +11,31 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
  * Dimensions and position is defined by static values in Assets. Stage copies this.
  */
 public class MainScreen implements Screen{
-	Stage stage = new Stage();
-	private Game game;
+	public Stage stage;
+	final public Game game;
+	public CategoriesBox catTable;
+	public ViewBox view;
 	
 	public MainScreen (Game g){
 		//Gdx.app.log(TITLE, "ctor");
 		game = g;
+
+		stage = new Stage();
+		//create all tables
+		view = new ViewBox(Assets.uiSkin);
+		catTable = new CategoriesBox(Assets.uiSkin);
+		//catTable.setBackground(Assets.uiSkin.getDrawable("up"));		
 	}
 	
-	//Render is looping after show() is called. Is used to draw and redraw.
+	//Render is looping after show() is called.
 	@Override
 	public void render(float delta) {
 		// TODO Auto-generated method stub
 		//Gdx.app.log(TITLE, "render");
-		Gdx.gl.glClearColor(0.7f, 0.7f, 0.7f, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
+		Gdx.gl.glClearColor(1f, 1f, 1f, 1.0f);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
 		//Distributes action to actors, actors children, and actors children's children.
 		stage.act(delta); //delta = time since last time drawn
 		stage.draw(); //redraws
@@ -38,13 +47,15 @@ public class MainScreen implements Screen{
 		
 	}
 
-	//Show is called once when screen is activated and creates. All data within the screen is created here. 
+	//Called once when screen is activated and creates. All data within the screen is created here. 
 	@Override
 	public void show() {
 		//All input går gjennom stage
 		Gdx.input.setInputProcessor(stage);
 		
-		
+		//Add actors to table
+		stage.addActor(catTable);
+		stage.addActor(view);
 	}
 
 	@Override
