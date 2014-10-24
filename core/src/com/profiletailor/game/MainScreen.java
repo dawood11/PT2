@@ -19,13 +19,13 @@ public class MainScreen implements Screen{
 	public MainScreen (Game g){
 		//Gdx.app.log(TITLE, "ctor");
 		game = g;
-		PetrelFactory.load();
 		stage = new Stage();
 		//create all tables
 		view = new ViewBox(Assets.uiSkin);
 		catTable = new CategoriesBox(Assets.uiSkin);
 		//catTable.setBackground(Assets.uiSkin.getDrawable("up"));	
 		view.addActor(new PerspectiveBox(Assets.uiSkin));
+		
 	}
 	
 	//Render is looping after show() is called.

@@ -2,21 +2,16 @@ package com.profiletailor.game;
 
 public class Perspective {
 	public String name;
-	private static boolean tabsCreated = false;
+	//holder booleans som forteller for hver tab om den er med i perspektivet eller ikke
+	//skal settes fra PetrelFactory
+	private boolean [] hasTab;
 	
 	Perspective(String name){
 		this.name = name;
+		hasTab = new boolean[PetrelFactory.tabNames.length];
 		
 	}
 	
-	public void createTabs(){
-		if(tabsCreated) return;
-		String[] tabNames = {"a", "b", "c", "d"};
-		RibbonTab[] tabs = new RibbonTab[tabNames.length];
-		for(int i = 0; i < tabs.length; i++){
-			tabs[i] = new RibbonTab(tabNames[i]);
-		}
-		tabsCreated = true;
-	}
+
 	
 }

@@ -27,8 +27,8 @@ public class PerspectiveBox extends Table {
 	private void createButtons(){
 		perspectives = new TextButton[7];
 		int i = 0;
-		for(Perspective p : PetrelFactory.perspectives){
-			perspectives[i] = new TextButton(p.name, Assets.txbStyle1);
+		for(String s : PetrelFactory.perspectiveNames ){
+			perspectives[i] = new TextButton(s, Assets.txbStyle1);
 			perspectives[i].setBounds(0,getHeight()-(Assets.btnCatH*i)+i,getWidth(),Assets.btnCatH);
 			perspectives[i].addListener(new EventListener(){
 				@Override

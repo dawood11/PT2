@@ -23,6 +23,11 @@ public abstract class PetrelFactory {
 			perspectives[i] = new Perspective(perspectiveNames[i]);
 		}
 	}
+	//sets the boolean array in each perspective that 
+	//knows which tabs are in that perspective
+	private static void setPerspectiveTabs(){
+		
+	}
 	//
 	private static void createRibbonTabs(){
 		tabs = new RibbonTab[tabNames.length];
