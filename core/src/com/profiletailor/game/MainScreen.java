@@ -15,15 +15,18 @@ public class MainScreen implements Screen{
 	final public Game game;
 	public CategoriesBox catTable;
 	public ViewBox view;
-	
+	public PerspectivesBox perspectiveList;
+	public PreviewToolGroup previewTG;
 	public MainScreen (Game g){
 		//Gdx.app.log(TITLE, "ctor");
 		game = g;
 
 		stage = new Stage();
 		//create all tables
+		previewTG = new PreviewToolGroup(Assets.uiSkin);
+		perspectiveList = new PerspectivesBox(Assets.uiSkin);
 		view = new ViewBox(Assets.uiSkin);
-		catTable = new CategoriesBox(Assets.uiSkin);
+		catTable = new CategoriesBox(Assets.uiSkin,this);
 		//catTable.setBackground(Assets.uiSkin.getDrawable("up"));		
 	}
 	
