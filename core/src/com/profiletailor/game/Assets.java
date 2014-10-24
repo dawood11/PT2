@@ -35,7 +35,7 @@ abstract public class Assets {
 	public static float txfH = 15;
 	public static float lblH = 15;
 	public static float btnCatH = 35;
-	
+	public static float prevwRibH = 100;
 
 	
 	public static TextureAtlas uiAtlas;
@@ -45,7 +45,9 @@ abstract public class Assets {
 	public static TextButtonStyle txbStyle1;
 	public static TextFieldStyle txfStyle1;
 	public static LabelStyle lblStyle1;
-	public static BitmapFont white, black, smallWhite, smallBlack; 
+	public static BitmapFont white, black, smallWhite, smallBlack;
+
+	 
 
 	
 	public static void set(){

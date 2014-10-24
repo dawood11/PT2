@@ -24,7 +24,8 @@ public class MainScreen implements Screen{
 		view = new ViewBox(Assets.uiSkin);
 		catTable = new CategoriesBox(Assets.uiSkin);
 		//catTable.setBackground(Assets.uiSkin.getDrawable("up"));	
-		view.addActor(new PerspectiveBox(Assets.uiSkin));
+		//view.addActor(new PerspectiveBox(Assets.uiSkin));
+		view.addActor(new TabSelectionBox(Assets.uiSkin) );
 		
 	}
 	

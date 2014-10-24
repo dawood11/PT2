@@ -42,6 +42,11 @@ public abstract class PetrelFactory {
 		tabInPerspective.put("Simulation", tabs.get("Simulation"));
 		tabInPerspective.put("MyTab", tabs.get("MyTab"));
 		per.setTabs(tabInPerspective);
+		
+		per = perspectives.get("Geology and Geophysics");
+		tabInPerspective.clear();
+		tabInPerspective.put("File", tabs.get("File"));
+		tabInPerspective.put("Home", tabs.get("Home"));
 	}
 	//
 	private static void createRibbonTabs(){
