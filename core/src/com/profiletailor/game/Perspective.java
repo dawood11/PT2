@@ -1,16 +1,20 @@
 package com.profiletailor.game;
 
+import java.util.HashMap;
+
 public class Perspective {
 	public String name;
-	//holder booleans som forteller for hver tab om den er med i perspektivet eller ikke
-	//skal settes fra PetrelFactory
-	private boolean [] hasTab;
+	public  HashMap<String, RibbonTab> tabs;
 	
 	Perspective(String name){
 		this.name = name;
-		hasTab = new boolean[PetrelFactory.tabNames.length];
 		
 	}
+	public void setTabs(HashMap<String, RibbonTab> tabInPerspective) {
+		this.tabs = tabInPerspective;
+		
+	}
+	
 	
 
 	
