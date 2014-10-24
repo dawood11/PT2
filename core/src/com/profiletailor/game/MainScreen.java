@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
  */
 public class MainScreen implements Screen{
 	public Stage stage;
+	public Profile profile;
 	final public Game game;
 	public CategoriesBox catTable;
 	public ViewBox view;
@@ -21,6 +22,7 @@ public class MainScreen implements Screen{
 		//Gdx.app.log(TITLE, "ctor");
 		game = g;
 
+		profile = new Profile();
 		stage = new Stage();
 		//create all tables
 		previewTG = new PreviewToolGroup(Assets.uiSkin);

@@ -9,8 +9,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 	/*
 	 * Table for menu with buttons for Ribbons, ToolGroups, Perspectives osv.
-	 * Gimensions and position from static values in Assets, while children actors' values are relativte to parent 
+	 * Dimensions and position from static values in Assets, while children actors' values are relativte to parent 
 	 */
+
 public class CategoriesBox extends Table{
 	private MainScreen ms;
 	CategoriesBox (Skin skin, final MainScreen ms){
@@ -33,6 +34,7 @@ public class CategoriesBox extends Table{
 				if (btnPerspectives.isPressed()){
 					ms.view.clear();
 					ms.view.addActor(ms.perspectiveList);
+					ms.view.addActor(ms.profile.getPerspective());
 					this.setTapCountInterval(100);
 				}
 				//Does the shit that happens when pressed.
