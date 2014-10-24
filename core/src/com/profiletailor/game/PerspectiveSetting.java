@@ -12,4 +12,12 @@ public class PerspectiveSetting extends Table{
 		setBackground("up");
 	}
 	
+	public void loadPerspective(String perspectiveName){
+		/*
+		 * Called from buttons in perspectiveBox
+		 * Calls method in factory to return perspective with same name
+		 * Clears old content and adds the new content to itself
+		 */
+	}
+	
 }
