@@ -18,10 +18,10 @@ public class MainScreen implements Screen{
 	public ViewBox view;
 	public PerspectivesBox perspectiveList;
 	public PreviewToolGroup previewTG;
+	
 	public MainScreen (Game g){
 		//Gdx.app.log(TITLE, "ctor");
 		game = g;
-
 		profile = new Profile();
 		stage = new Stage();
 		//create all tables

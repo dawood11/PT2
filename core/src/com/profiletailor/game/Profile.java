@@ -11,5 +11,4 @@ public class Profile {
 	/*
 	 * Contains login info, and all perspectives, ribbons and toolgroups
 	 */
-
 }
