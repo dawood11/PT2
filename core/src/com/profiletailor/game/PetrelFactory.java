@@ -1,5 +1,7 @@
 package com.profiletailor.game;
 
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
 /*
  * Makes instances of classes PErspective and Ribbon tab and fills with required information
  * remember to call load from Assets or mainScreen or somewhere relevant
@@ -30,4 +32,10 @@ public abstract class PetrelFactory {
 			tabs[i] = new RibbonTab(tabNames[i]);
 		}
 	}
+	
+	public Actor getPerspective(String name) {
+		// Returns a perspective
+		return null;
+	}
+
 }

@@ -1,10 +1,10 @@
 package com.profiletailor.game;
 
 import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /*
  * This box is in the view of the perspectives category
@@ -17,7 +17,8 @@ public class PerspectiveBox extends Table {
 	
 	PerspectiveBox (Skin skin){
 		super(skin);
-		this.setBounds(0,  0,  Assets.viewW/2,  Assets.viewH);
+		setBackground("up");
+		setBounds(0, 0, ( Assets.viewW / 2 ), Assets.viewH);
 		setBackground("up");
 		createButtons();
 		addButtons();
@@ -29,12 +30,11 @@ public class PerspectiveBox extends Table {
 		int i = 0;
 		for(Perspective p : PetrelFactory.perspectives){
 			perspectives[i] = new TextButton(p.name, Assets.txbStyle1);
-			perspectives[i].setBounds(0,getHeight()-(Assets.btnCatH*i)+i,getWidth(),Assets.btnCatH);
-			perspectives[i].addListener(new EventListener(){
+			perspectives[i].setBounds(0,getHeight()-((Assets.btnCatH-1)*i)-Assets.btnCatH,getWidth(),Assets.btnCatH);
+			perspectives[i].addListener(new ClickListener(0){
 				@Override
 				public boolean handle(Event event) {
-					// TODO Auto-generated method stub
-					//Does the shit that happens when pressed.
+					
 					return false;
 				}
 				

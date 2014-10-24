@@ -12,21 +12,23 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
  */
 public class MainScreen implements Screen{
 	public Stage stage;
-	public Profile profile;
 	final public Game game;
 	public CategoriesBox catTable;
 	public ViewBox view;
-	public PerspectivesBox perspectiveList;
+	public PerspectiveBox perspectiveList;
 	public PreviewToolGroup previewTG;
+	public PerspectiveSetting perspectiveSetting;
 	
 	public MainScreen (Game g){
 		//Gdx.app.log(TITLE, "ctor");
+		PetrelFactory.load();
 		game = g;
-		profile = new Profile();
 		stage = new Stage();
 		//create all tables
 		previewTG = new PreviewToolGroup(Assets.uiSkin);
-		perspectiveList = new PerspectivesBox(Assets.uiSkin);
+		perspectiveList = new PerspectiveBox(Assets.uiSkin);
+		perspectiveSetting = new PerspectiveSetting(Assets.uiSkin);
+		
 		view = new ViewBox(Assets.uiSkin);
 		catTable = new CategoriesBox(Assets.uiSkin,this);
 		//catTable.setBackground(Assets.uiSkin.getDrawable("up"));		

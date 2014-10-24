@@ -22,7 +22,7 @@ public class CategoriesBox extends Table{
 		setPosition(Assets.catX, Assets.catY); 
 		setBackground("up");
 
-		final TextButton btnProfile = new TextButton("Profile", Assets.txbStyle1);
+		final TextButton btnProfile = new TextButton("PetrelFactory", Assets.txbStyle1);
 		btnProfile.setBounds(0,getHeight()-(Assets.btnCatH*1)+1,getWidth(),Assets.btnCatH);
 		
 		final TextButton btnPerspectives = new TextButton("Perspectives", Assets.txbStyle1);
@@ -34,7 +34,7 @@ public class CategoriesBox extends Table{
 				if (btnPerspectives.isPressed()){
 					ms.view.clear();
 					ms.view.addActor(ms.perspectiveList);
-					ms.view.addActor(ms.profile.getPerspective());
+					ms.view.addActor(ms.perspectiveSetting);
 					this.setTapCountInterval(100);
 				}
 				//Does the shit that happens when pressed.
