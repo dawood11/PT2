@@ -14,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 public class CategoriesBox extends Table{
 	private MainScreen ms;
+
+	
 	CategoriesBox (Skin skin, final MainScreen ms){
 		super(skin);
 		this.ms = ms;
@@ -22,16 +24,16 @@ public class CategoriesBox extends Table{
 		setPosition(Assets.catX, Assets.catY); 
 		setBackground("up");
 
-		final TextButton btnProfile = new TextButton("PetrelFactory", Assets.txbStyle1);
+		final TextButton btnProfile = new TextButton("Profile", Assets.txbStyle1);
 		btnProfile.setBounds(0,getHeight()-(Assets.btnCatH*1)+1,getWidth(),Assets.btnCatH);
 		
-		final TextButton btnPerspectives = new TextButton("Perspectives", Assets.txbStyle1);
-		btnPerspectives.setBounds(0,getHeight()-(Assets.btnCatH*2) +2 ,getWidth(),Assets.btnCatH);
-		btnPerspectives.addListener(new ClickListener(0){
+		final TextButton btnTabs = new TextButton("Tabs", Assets.txbStyle1);
+		btnTabs.setBounds(0,getHeight()-(Assets.btnCatH*2) +1 ,getWidth(),Assets.btnCatH);
+		btnTabs.addListener(new ClickListener(0){
 			@Override
 			public boolean handle(Event event) {
 				// TODO Auto-generated method stub
-				if (btnPerspectives.isPressed()){
+				if (btnTabs.isPressed()){
 					ms.view.clear();
 					ms.view.addActor(ms.perspectiveSetting);
 					this.setTapCountInterval(100);
@@ -41,8 +43,15 @@ public class CategoriesBox extends Table{
 			}
 			
 		});
+		final TextButton btnTools = new TextButton("Tools", Assets.txbStyle1);
+		btnTools.setBounds(0,getHeight()-(Assets.btnCatH*3)+1,getWidth(),Assets.btnCatH);
+		
+		final TextButton btnShort = new TextButton("Shortcuts", Assets.txbStyle1);
+		btnShort.setBounds(0,getHeight()-(Assets.btnCatH*4)+1,getWidth(),Assets.btnCatH);
 		
 		addActor (btnProfile);
-		addActor (btnPerspectives);
+		addActor (btnTabs);
+		addActor (btnTools);
+		addActor (btnShort);
 	}
 }
