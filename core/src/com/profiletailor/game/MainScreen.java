@@ -15,18 +15,30 @@ public class MainScreen implements Screen{
 	final public Game game;
 	public CategoriesBox catTable;
 	public ViewBox view;
+
+	public PreviewToolGroup previewTG;
+	public PerspectiveSetting perspectiveSetting;
 	
 	public MainScreen (Game g){
 		//Gdx.app.log(TITLE, "ctor");
+
+		PetrelFactory.load();
 		game = g;
 		stage = new Stage();
 		//create all tables
+		previewTG = new PreviewToolGroup(Assets.uiSkin);
+		perspectiveSetting = new PerspectiveSetting(Assets.uiSkin);
+		
 		view = new ViewBox(Assets.uiSkin);
-		catTable = new CategoriesBox(Assets.uiSkin);
+
+		catTable = new CategoriesBox(Assets.uiSkin, this);
 		//catTable.setBackground(Assets.uiSkin.getDrawable("up"));	
 		//view.addActor(new PerspectiveBox(Assets.uiSkin));
 		//view.addActor(new TabSelectionBox(Assets.uiSkin) );
 		
+
+		//catTable.setBackground(Assets.uiSkin.getDrawable("up"));		
+
 	}
 	
 	//Render is looping after show() is called.

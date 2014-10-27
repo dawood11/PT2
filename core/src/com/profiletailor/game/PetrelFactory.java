@@ -1,6 +1,9 @@
 package com.profiletailor.game;
 
+
 import java.util.HashMap;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+
 
 /*
  * Makes instances of classes PErspective and Ribbon tab and fills with required information
@@ -55,4 +58,10 @@ public abstract class PetrelFactory {
 			tabs.put(name, new RibbonTab(name));
 		}
 	}
+	
+	public Actor getPerspective(String name) {
+		// Returns a perspective
+		return null;
+	}
+
 }

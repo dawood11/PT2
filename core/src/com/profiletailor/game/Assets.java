@@ -18,6 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 	 * - atlas
 	 * - tablestyles
 	 */
+
 abstract public class Assets {
 	public static float screenH = 640, screenW = 1080, padding = 5;
 	
@@ -30,13 +31,12 @@ abstract public class Assets {
 			viewY = 0 + padding ,
 			viewH = catH,
 			viewW = screenW - catW - (padding * 3);
-
 	
 	public static float txfH = 15;
 	public static float lblH = 15;
 	public static float btnCatH = 35;
-	public static float prevwRibH = 100;
 
+	public static float prevwRibH = 100;
 	
 	public static TextureAtlas uiAtlas;
 	public static TextureAtlas dummyAtlas;
