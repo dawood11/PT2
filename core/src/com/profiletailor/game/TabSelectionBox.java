@@ -3,7 +3,7 @@ package com.profiletailor.game;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 /*
- * This is where the user picks which tabs are visible in My profile
+ * This is where the user picks which tabs are visible in My Perspective
  */
 public class TabSelectionBox extends Table {
 	TabSelectionBox(Skin skin){

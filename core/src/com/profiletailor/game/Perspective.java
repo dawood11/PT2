@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Perspective {
 	public String name;
 	public  HashMap<String, RibbonTab> tabs;
-	
+
 	Perspective(String name){
 		this.name = name;
 		

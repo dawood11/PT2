@@ -62,6 +62,7 @@ abstract public class Assets {
 		
 		smallWhite = new BitmapFont(Gdx.files.internal("white.fnt"), false);
 		smallBlack = new BitmapFont(Gdx.files.internal("black.fnt"), false);
+		
 
 		
 		//Styles get their drawables from uiSkin;
@@ -77,6 +78,10 @@ abstract public class Assets {
 		txfStyle1 = new TextFieldStyle();
 		txfStyle1.background = uiSkin.getDrawable("up");
 		txfStyle1.font = smallBlack;
+		
+		lblStyle1 = new LabelStyle();
+		lblStyle1.font = smallBlack;
+		lblStyle1.background = uiSkin.getDrawable("down");
 		
 	}
 }

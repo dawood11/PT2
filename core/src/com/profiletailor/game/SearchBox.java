@@ -21,7 +21,7 @@ public class SearchBox extends Table {
 		
 		//Create and define actors
 		tblResults = new Table(Assets.uiSkin);
-		lblTop = new Label("Search", Assets.lblStyle1);
+		lblTop = new Label("Search", Assets.lblStyle1 ); 
 		txfSearch = new TextField("Search for items" , Assets.txfStyle1);
 
 		//Always stays at the top, but will not exceed parents boundaries
