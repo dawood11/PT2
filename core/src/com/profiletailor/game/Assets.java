@@ -1,6 +1,7 @@
 package com.profiletailor.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
@@ -47,6 +48,9 @@ abstract public class Assets {
 	public static LabelStyle lblStyle1;
 	public static BitmapFont white, black, smallWhite, smallBlack;
 
+	public static float dummyH = 64f;
+	public static float dummyW = 64f;
+
 	 
 
 	
@@ -78,6 +82,7 @@ abstract public class Assets {
 		txfStyle1 = new TextFieldStyle();
 		txfStyle1.background = uiSkin.getDrawable("up");
 		txfStyle1.font = smallBlack;
+		txfStyle1.fontColor = Color.GRAY;
 		
 		lblStyle1 = new LabelStyle();
 		lblStyle1.font = smallBlack;
