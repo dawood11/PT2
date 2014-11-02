@@ -31,7 +31,7 @@ public abstract class PetrelFactory {
 	}
 	//sets the boolean array in each perspective that 
 	//knows which tabs are in that perspective
-	private static void setPerspectiveTabs(){
+	public static void setPerspectiveTabs(){
 		Perspective per = perspectives.get("Seismic to Simulation");
 		HashMap <String, RibbonTab> tabInPerspective = new HashMap <String, RibbonTab>();
 		tabInPerspective.put("File", tabs.get("File"));

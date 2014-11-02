@@ -1,7 +1,6 @@
 package com.profiletailor.game;
 
 import com.badlogic.gdx.scenes.scene2d.Event;
-import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -56,7 +55,8 @@ public class CategoriesBox extends Table{
 					
 					
 					this.setTapCountInterval(100);
-				}else if (btnTools.isPressed()){
+				}
+				else if (btnTools.isPressed()){
 					if(ms.view.current != ms.view.TOOLS){
 						ms.view.setToToolView();
 					}
@@ -70,11 +70,13 @@ public class CategoriesBox extends Table{
 					
 					
 					this.setTapCountInterval(100);
-				}else if (btnProfile.isPressed()){
-					ms.view.clear();
-					
-					this.setTapCountInterval(100);
 				}
+					//else if (btnProfile.isPressed()){
+//					if(ms.view.current != ms.view.PROFILE){
+//						ms.view.setToProfilesView();;
+//					}
+//					this.setTapCountInterval(100);
+//				}
 				//Does the shit that happens when pressed.
 				return false;
 			}
@@ -82,30 +84,30 @@ public class CategoriesBox extends Table{
 		
 	}
 	private void createButtons(){
-		btnProfile = new TextButton("Profile", Assets.txbStyle1);
-		btnProfile.setBounds(0,getHeight()-(Assets.btnCatH*1)+1,getWidth(),Assets.btnCatH);
+		//btnProfile = new TextButton("Profile", Assets.txbStyle1);
+		//btnProfile.setBounds(0,getHeight()-(Assets.btnCatH*1)+1,getWidth(),Assets.btnCatH);
 		
 		
 		btnTabs = new TextButton("Tabs", Assets.txbStyle1);
-		btnTabs.setBounds(0,getHeight()-(Assets.btnCatH*2) +1 ,getWidth(),Assets.btnCatH);
+		btnTabs.setBounds(0,getHeight()-(Assets.btnCatH*1) +1 ,getWidth(),Assets.btnCatH);
 		
 		
 		btnTools = new TextButton("Tools", Assets.txbStyle1);
-		btnTools.setBounds(0,getHeight()-(Assets.btnCatH*3)+1,getWidth(),Assets.btnCatH);
+		btnTools.setBounds(0,getHeight()-(Assets.btnCatH*2)+1,getWidth(),Assets.btnCatH);
 		
 		
 		btnShort = new TextButton("Shortcuts", Assets.txbStyle1);
-		btnShort.setBounds(0,getHeight()-(Assets.btnCatH*4)+1,getWidth(),Assets.btnCatH);
+		btnShort.setBounds(0,getHeight()-(Assets.btnCatH*3)+1,getWidth(),Assets.btnCatH);
 		
 	}
 	public void addListenerToButtons(){
-		btnProfile.addListener(listener);
+		//btnProfile.addListener(listener);
 		btnTabs.addListener(listener);
 		btnTools.addListener(listener);
 		btnShort.addListener(listener);
 	}
 	public void addButtonActors(){
-		addActor (btnProfile);
+		//addActor (btnProfile);
 		addActor (btnTabs);
 		addActor (btnTools);
 		addActor (btnShort);

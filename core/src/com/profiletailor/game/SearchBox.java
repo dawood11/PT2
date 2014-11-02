@@ -1,7 +1,6 @@
 package com.profiletailor.game;
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -9,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldListener;
+import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.DragAndDrop;
 import com.badlogic.gdx.scenes.scene2d.utils.DragAndDrop.Payload;
@@ -20,28 +20,33 @@ import com.badlogic.gdx.scenes.scene2d.utils.DragAndDrop.Source;
  */
 public class SearchBox extends Table {
 	Label lblTop; //header, if needed
-	Table tblResults; //displays search results
+	VerticalGroup tblResults; //displays search results
 	TextField txfSearch; // input string for search
 	TextFieldListener listener;
 	Dummy[] dummies;
+
 	
 	SearchBox(){
 		super();
 		setClip(true); //clips children exceeding parents boundaries
-		this.setBounds(0, 0,  Assets.viewW/2,  Assets.viewH);
-		
-		//Always stays right beneath lblTop and txfSearch
-		tblResults = new Table(Assets.uiSkin);
-		tblResults.setBounds(0, 0, getWidth(), getHeight() - (Assets.txfH + Assets.lblH));
-		tblResults.setBackground("down");
+		this.setBounds(0, Assets.btmLineH,  Assets.viewW/2,  Assets.viewH-Assets.btmLineH);
 				
+		create();
+		show();			
+		
+	}
+	private void create(){
+		tblResults = new VerticalGroup(); //add skin?
+		tblResults.setBounds(0, 0, getWidth(), getHeight() - (Assets.txfH + Assets.lblH));
+		tblResults.align(Align.left);
+		
+		tblResults.space(Assets.padding);
+		tblResults.pad(Assets.padding);				
 
 		//Always stays at the top, but will not exceed parents boundaries
 		lblTop = new Label("Search", Assets.lblStyle1 ); 
-		lblTop.setBounds(0, Assets.viewH-Assets.lblH, Assets.viewW/2, Assets.lblH);
+		lblTop.setBounds(0, getHeight()-Assets.lblH, Assets.viewW/2, Assets.lblH);
 
-		
-		//Always stays under lblTop
 		
 		txfSearch = new TextField("Search for items" , Assets.txfStyle1 );
 		txfSearch.setSize(getWidth(), Assets.txfH);
@@ -52,7 +57,7 @@ public class SearchBox extends Table {
 			@Override
 			public boolean handle(Event event) {
 				
-				tblResults.clear();//empties tblResults
+				//tblResults.clear();//empties tblResults
 				String input = txfSearch.getText().toString().toLowerCase();
 				if (!input.equals(" ")) {
 					search(input);
@@ -60,34 +65,29 @@ public class SearchBox extends Table {
 				return false;
 			}
 		});
-				
-		//Add actors to table
-		
+		createDummies();
+	}
+	private void show(){
 		addActor(txfSearch);
 		addActor(tblResults);
 		addActor(lblTop);
-		
-		createActors();
-		displayAll();	
-		
+		displayAll();
 	}
 	
 	private void search(String input){
-		System.out.println("SEARCHING: " + input);
+		//System.out.println("SEARCHING: " + input);
 	}
 	public void displayAll(){
-		float posY = tblResults.getHeight() - Assets.dummyH - Assets.padding;
 		for(Dummy d : dummies){
 			if(d != null){
-				d.setPosition(Assets.padding, posY);
-				posY -= Assets.dummyH+Assets.padding; 
 				tblResults.addActor(d);
+				
 				
 			}
 		}
 		
 	}
-	private void createActors(){
+	private void createDummies(){
 		dummies = new Dummy[16];
 		dummies[0] = new Dummy("calc", Assets.dummySkin.getDrawable("calculator"));
 		dummies[1] = new Dummy("database tool", Assets.dummySkin.getDrawable("database tool"));
@@ -107,27 +107,46 @@ public class SearchBox extends Table {
 		dummies[14] = new Dummy("visual filters", Assets.dummySkin.getDrawable("visual filters"));
 		dummies[15] = new Dummy("window", Assets.dummySkin.getDrawable("window"));
 	}
-
+	/*
+	 * The whole table acts as a drag-source
+	 * dragstart:
+	 * uses hit to determine which dummy to load
+	 * dragstop:
+	 * if a dummy is dropped outside target it is reentered into the table
+	 */
 	public void setSource(DragAndDrop dnd) {
+		
 		dnd.addSource(new Source(tblResults){
-
+			
 			@Override
 			public Payload dragStart(InputEvent event, float x, float y,
 					int pointer) {
 				Dummy a = (Dummy)tblResults.hit(x, y, false);
 				if(a != null){
-					System.out.println("Draggin " + a.getName());
 					Payload p = new Payload();
 					p.setDragActor(a);
-					//TODO: realign table of results
 					return p;
 				}
 				return null;
 
 			}
+			@Override
+			public void dragStop(InputEvent event, float x, float y, int pointer, 
+					DragAndDrop.Payload payload, DragAndDrop.Target target){
+				if(target == null){
+					Dummy returned = (Dummy)payload.getDragActor();
+					tblResults.addActor(returned);
+				}
+			}
 			
 		});
 		
+	}
+	public void resize(float width, float height){
+		setSize(width, height);
+		tblResults.setSize(width,  height - (Assets.txfH + Assets.lblH));
+		lblTop.setPosition(0, getHeight()-Assets.lblH);
+		txfSearch.setPosition(0, getHeight() - (Assets.txfH + Assets.lblH));
 	}
 
 	
