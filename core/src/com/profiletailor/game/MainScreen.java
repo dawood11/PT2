@@ -15,24 +15,22 @@ public class MainScreen implements Screen{
 	final public Game game;
 	public CategoriesBox catTable;
 	public ViewBox view;
-	public PerspectiveBox perspectiveList;
-	public PreviewToolGroup previewTG;
-	public PerspectiveSetting perspectiveSetting;
-	
+	public BottomLine btmLine;
+		
 	public MainScreen (Game g){
 		//Gdx.app.log(TITLE, "ctor");
+
 		PetrelFactory.load();
 		game = g;
 		stage = new Stage();
-		//create all tables
-		previewTG = new PreviewToolGroup(Assets.uiSkin);
-		perspectiveList = new PerspectiveBox(Assets.uiSkin);
-		perspectiveSetting = new PerspectiveSetting(Assets.uiSkin);
 		
 		view = new ViewBox(Assets.uiSkin);
-		catTable = new CategoriesBox(Assets.uiSkin,this);
-		//catTable.setBackground(Assets.uiSkin.getDrawable("up"));		
+		catTable = new CategoriesBox(Assets.uiSkin, this);
+		btmLine = new BottomLine(Assets.uiSkin, this);
+		
+
 	}
+
 	
 	//Render is looping after show() is called.
 	@Override
@@ -42,8 +40,9 @@ public class MainScreen implements Screen{
 		
 		Gdx.gl.glClearColor(1f, 1f, 1f, 1.0f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+		
 		//Distributes action to actors, actors children, and actors children's children.
+		stage.setDebugAll(Assets.DEBUG);
 		stage.act(delta); //delta = time since last time drawn
 		stage.draw(); //redraws
 	}
@@ -63,6 +62,10 @@ public class MainScreen implements Screen{
 		//Add actors to table
 		stage.addActor(catTable);
 		stage.addActor(view);
+		stage.addActor(btmLine);
+		//TODO: call a method in view for start-screen
+
+		
 	}
 
 	@Override

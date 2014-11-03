@@ -1,22 +1,21 @@
 package com.profiletailor.game;
 
+import java.util.HashMap;
+
 public class Perspective {
 	public String name;
-	private static boolean tabsCreated = false;
-	
+	public  HashMap<String, RibbonTab> tabs;
+
 	Perspective(String name){
 		this.name = name;
 		
 	}
-	
-	public void createTabs(){
-		if(tabsCreated) return;
-		String[] tabNames = {"a", "b", "c", "d"};
-		RibbonTab[] tabs = new RibbonTab[tabNames.length];
-		for(int i = 0; i < tabs.length; i++){
-			tabs[i] = new RibbonTab(tabNames[i]);
-		}
-		tabsCreated = true;
+	public void setTabs(HashMap<String, RibbonTab> tabInPerspective) {
+		this.tabs = tabInPerspective;
+		
 	}
+	
+	
+
 	
 }
